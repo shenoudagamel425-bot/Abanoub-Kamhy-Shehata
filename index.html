@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abanoub Kamhy | Civil Engineer</title>
+
+<style>
+:root {
+  --main-bg: #eef1f4;
+  --text-color: #1f2933;
+  --card-bg: #ffffff;
+  --header-bg: #1f2933;
+}
+
+.dark {
+  --main-bg: #0f172a;
+  --text-color: #e5e7eb;
+  --card-bg: #1e293b;
+  --header-bg: #020617;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--main-bg);
+  color: var(--text-color);
+  transition: 0.4s;
+}
+
+/* ===== SCROLL PROGRESS BAR ===== */
+#progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: #38bdf8;
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.25s ease;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: var(--header-bg);
+  padding: 10px 40px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav h2 { color: white; font-size: 22px; }
+
+nav .nav-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav a, nav button {
+  margin-left: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover { color: #38bdf8; }
+
+.toggle {
+  background: #38bdf8;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ===== EXPERIENCE BUTTON ===== */
+.exp-btn {
+  display: inline-block;
+  padding: 6px 15px;
+  border-radius: 20px;
+  background: #38bdf8;
+  color: #020617;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.exp-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  background: #0d6efd;
+  color: white;
+}
+
+/* ===== HERO ===== */
+.hero {
+  color: white;
+  text-align: center;
+  padding: 50px 15px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  transition: background 1s;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(5px);
+}
+
+.hero img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-bottom: 15px;
+  transform: scale(0);
+  animation: zoomIn 1s forwards;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+@keyframes zoomIn {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  60% { transform: scale(1.2) rotate(15deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.hero img:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.hero h1, .hero p { margin: 8px 0; font-size: 22px; }
+.hero .btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 20px;
+  background: #38bdf8;
+  color: #020617;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.hero .btn:hover {
+  background: #0d6efd;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ===== ABOUT ME BOX ===== */
+.about-me {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.about-me h2 { text-align: center; margin-bottom: 20px; }
+.about-me p { font-size: 15px; line-height: 1.6; }
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 40px 15px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s;
+}
+
+.section.show, .about-me.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section h2 { text-align: center; margin-bottom: 25px; }
+
+.skills-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.skills {
+  flex: 1;
+  min-width: 220px;
+  padding: 0;
+  list-style: none;
+}
+
+.skills li {
+  background: var(--card-bg);
+  padding: 10px;
+  margin-bottom: 8px;
+  border-left: 5px solid #38bdf8;
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--header-bg);
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+}
+
+/* ===== PARTICLES ===== */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.5;
+  pointer-events: none;
+  animation: float 10s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) translateX(0) rotate(0deg);}
+  100% { transform: translateY(-120vh) translateX(50px) rotate(360deg);}
+}
+
+/* ===== MEDIA QUERIES RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  nav h2 { font-size: 20px; }
+  .hero img { width: 110px; height: 110px; }
+  .hero h1 { font-size: 20px; }
+  .hero p { font-size: 16px; }
+  .skills li { font-size: 13px; }
+  .about-me p { font-size: 14px; }
+}
+
+@media (max-width: 768px) {
+  nav { flex-direction: column; align-items: center; }
+  nav .nav-right { margin-top: 10px; flex-direction: column; }
+  nav a, nav button { margin: 5px 0; }
+  .hero img { width: 100px; height: 100px; }
+  .hero h1 { font-size: 18px; }
+  .hero p { font-size: 15px; }
+  .hero-content { padding: 15px; }
+  .skills-container { flex-direction: column; gap: 15px; }
+  .skills li { font-size: 13px; padding: 8px; }
+  .about-me { padding: 15px; margin: 25px 10px; }
+}
+
+@media (max-width: 480px) {
+  .hero img { width: 80px; height: 80px; }
+  .hero h1 { font-size: 16px; }
+  .hero p { font-size: 14px; }
+  .hero .btn { padding: 6px 12px; font-size: 14px; }
+  .about-me { padding: 12px; margin: 20px 5px; }
+  .skills li { font-size: 12px; padding: 6px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Scroll Progress Bar -->
+<div id="progressBar"></div>
+
+<header>
+  <nav>
+    <h2>Abanoub Kamhy</h2>
+    <div class="nav-right">
+      <a href="experience.html" class="exp-btn">Experience</a>
+      <button class="toggle" onclick="toggleMode()">🌙</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="hero">
+  <div class="hero-content" id="heroContent">
+    <img src="melad.png" alt="Civil Engineer">
+    <h1 id="heroName"></h1>
+    <p id="heroRole"></p>
+    <a href="contact.html" class="btn">Hire Me</a>
+  </div>
+</section>
+
+<section class="about-me">
+  <h2>About Me</h2>
+  <p>
+    I am a passionate Civil Engineer with experience in structural design, project management, and site supervision.
+    Skilled in AutoCAD, Revit Structure, ETABS, SAFE, and SAP2000. I excel at cost estimation, BOQ preparation,
+    and executing construction projects from start to finish while ensuring quality and compliance with codes.
+  </p>
+</section>
+
+<section class="section">
+  <div class="skills-container">
+    <div>
+      <h2>Technical Skills</h2>
+      <ul class="skills">
+        <li>AutoCAD & Structural Detailing</li>
+        <li>Revit Structure (BIM)</li>
+        <li>ETABS / SAFE / SAP2000</li>
+        <li>BOQ & Cost Estimation</li>
+        <li>Site Supervision & Execution</li>
+        <li>Microsoft Office (Word, Excel, PowerPoint)</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Soft Skills</h2>
+      <ul class="skills">
+        <li>Problem Solving & Critical Thinking</li>
+        <li>Teamwork & Collaboration</li>
+        <li>Communication Skills</li>
+        <li>Adaptability & Flexibility</li>
+        <li>Time Management & Prioritization</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Courses & Trainings</h2>
+  <ul class="skills">
+    <li>Structural Design Diploma – Offline <span style="float:right;">Aug 2023</span><br>AutoCAD, Safe, ETABS, SAP2000, load/stress analysis.</li>
+    <li>Construction Site Engineering Course – Offline <span style="float:right;">Sep 2023</span></li>
+    <li>Structural Shop Drawing Course – Online <span style="float:right;">Jun 2024</span></li>
+    <li>Revit Structural (BIM) – Online <span style="float:right;">Jul 2024</span></li>
+  </ul>
+</section>
+
+<footer>
+  © 2026 Abanoub Kamhy – Civil Engineer
+</footer>
+
+<script>
+// Background slider
+const hero = document.getElementById("hero");
+const backgrounds = ["civil-bg1.jpg","civil-bg2.jpg","civil-bg3.jpg","civil-bg4.jpg"];
+let index = 0;
+function changeBackground(){
+  hero.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${backgrounds[index]}')`;
+  index = (index + 1) % backgrounds.length;
+}
+changeBackground();
+setInterval(changeBackground, 5000);
+
+// Dark / Light Mode
+function toggleMode() { document.body.classList.toggle("dark"); }
+
+// Scroll Animation
+const sections = document.querySelectorAll(".section, .about-me");
+window.addEventListener("scroll", () => {
+  const trigger = window.innerHeight - 100;
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if(top < trigger) sec.classList.add("show");
+  });
+
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById("progressBar").style.width = scrolled + "%";
+
+  hero.style.backgroundPositionY = -(winScroll * 0.3) + "px";
+});
+
+// Hero Content Fade-in
+window.addEventListener("load", () => {
+  const heroContent = document.getElementById("heroContent");
+  heroContent.style.opacity = 1;
+  heroContent.style.transform = "translateY(0)";
+});
+
+// Typing Effect
+const heroName = document.getElementById("heroName");
+const heroRole = document.getElementById("heroRole");
+const nameText = "Abanoub Kamhy Shehata";
+const roleText = "Civil Engineer";
+let nameIndex = 0;
+let roleIndex = 0;
+function typeName() {
+  if(nameIndex < nameText.length){
+    heroName.innerHTML += nameText.charAt(nameIndex);
+    nameIndex++;
+    setTimeout(typeName,120);
+  } else { setTimeout(typeRole,400); }
+}
+function typeRole() {
+  if(roleIndex < roleText.length){
+    heroRole.innerHTML += roleText.charAt(roleIndex);
+    roleIndex++;
+    setTimeout(typeRole,100);
+  }
+}
+typeName();
+
+// Particles
+for(let i=0;i<30;i++){
+  const particle = document.createElement("div");
+  particle.classList.add("particle");
+  particle.style.width = particle.style.height = Math.random()*8 + 4 + "px";
+  particle.style.background = "rgba(255,255,255,"+Math.random()+")";
+  particle.style.left = Math.random()*100 + "%";
+  particle.style.bottom = Math.random()*50 + "px";
+  particle.style.animationDuration = (Math.random()*5 + 5) + "s";
+  hero.appendChild(particle);
+}
+</script>
+
+</body>
+</html>

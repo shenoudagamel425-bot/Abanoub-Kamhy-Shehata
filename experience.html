@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience | Abanoub Kamhy</title>
+
+<style>
+:root {
+  --main-bg: #f4f6f8;
+  --header-bg: #1f2933;
+  --card-bg: #ffffff;
+  --text-color: #1f2933;
+  --card-text-color: #1f2933;
+}
+
+.dark {
+  --main-bg: #0f172a;
+  --header-bg: #020617;
+  --card-bg: #1e293b;
+  --text-color: #e5e7eb;
+  --card-text-color: #e5e7eb;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--main-bg);
+  margin: 0;
+  color: var(--text-color);
+  position: relative;
+  overflow-x: hidden;
+  transition: 0.4s;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: var(--header-bg);
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+header h2 { margin: 0; }
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.home-btn, .dark-toggle {
+  background: #38bdf8;
+  color: #020617;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.home-btn:hover, .dark-toggle:hover {
+  background: #0d6efd;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ===== PARTICLES ===== */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.4;
+  pointer-events: none;
+  animation: float 12s linear infinite;
+  background: rgba(56, 221, 248, 0.5);
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg);}
+  100% { transform: translateY(-120vh) rotate(360deg);}
+}
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--card-bg);
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s, transform 0.6s, color 0.4s;
+  opacity: 0;
+  transform: translateY(40px);
+  color: var(--card-text-color);
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.card h3 { margin-top: 0; }
+.card p { margin: 5px 0; color: var(--card-text-color); }
+.card ul { padding-left: 20px; margin: 10px 0 0 0; color: var(--card-text-color); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .card { margin: 18px auto; padding: 22px; max-width: 90%; }
+}
+
+@media (max-width: 768px) {
+  header { flex-direction: column; align-items: flex-start; gap: 10px; padding: 15px 20px; }
+  .card { margin: 15px auto; padding: 20px; max-width: 95%; }
+  .header-buttons { width: 100%; justify-content: flex-start; gap: 10px; }
+  .home-btn, .dark-toggle { padding: 7px 12px; font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+  .card { margin: 12px auto; padding: 15px; max-width: 100%; }
+  .card h3 { font-size: 18px; }
+  .card p, .card ul { font-size: 14px; }
+  header h2 { font-size: 18px; }
+  .home-btn, .dark-toggle { padding: 6px 10px; font-size: 12px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>Professional Experience</h2>
+  <div class="header-buttons">
+    <a href="index.html" class="home-btn">Home</a>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+  </div>
+</header>
+
+<!-- ===== PARTICLES ===== -->
+<script>
+for(let i=0;i<25;i++){
+  const particle = document.createElement("div");
+  particle.classList.add("particle");
+  particle.style.width = particle.style.height = Math.random()*8 + 4 + "px";
+  particle.style.left = Math.random()*100 + "%";
+  particle.style.bottom = Math.random()*50 + "px";
+  particle.style.animationDuration = (Math.random()*6 + 6) + "s";
+  document.body.appendChild(particle);
+}
+</script>
+
+<div class="card">
+  <h3>Civil Technical Office Engineer</h3>
+  <p><strong>Company:</strong> Al Alama Company</p>
+  <p><strong>Duration:</strong> 2025 – Present</p>
+  <p><strong>Location:</strong> Qena, Egypt</p>
+  <p><strong>Responsibilities:</strong></p>
+  <ul>
+    <li>Preparing detailed structural drawings using AutoCAD and Revit.</li>
+    <li>Calculating quantities and preparing BOQ for projects.</li>
+    <li>Coordinating with architects and site engineers to ensure design compliance.</li>
+    <li>Assisting in project planning and scheduling.</li>
+  </ul>
+  <p><strong>Skills Gained:</strong> AutoCAD, Revit Structure (BIM), ETABS, SAFE, Project Management, Cost Estimation</p>
+</div>
+
+<div class="card">
+  <h3>Site Civil Engineer</h3>
+  <p><strong>Project:</strong> Residential Building – Naga Hammadi</p>
+  <p><strong>Duration:</strong> 2024 – 2025</p>
+  <p><strong>Responsibilities:</strong></p>
+  <ul>
+    <li>Supervising on-site construction activities and labor teams.</li>
+    <li>Ensuring compliance with design specifications and safety standards.</li>
+    <li>Monitoring material usage and reporting to management.</li>
+    <li>Executing site works including concreting, steel works, and finishing.</li>
+  </ul>
+  <p><strong>Skills Gained:</strong> Site Supervision, Execution, Team Coordination, Material Management</p>
+</div>
+
+<div class="card">
+  <h3>Site Engineer</h3>
+  <p><strong>Project:</strong> Residential Building – Bahjoura</p>
+  <p><strong>Duration:</strong> 2023 – 2024</p>
+  <p><strong>Responsibilities:</strong></p>
+  <ul>
+    <li>Assisted senior engineers in site execution and inspections.</li>
+    <li>Prepared daily reports on site progress.</li>
+    <li>Coordinated with contractors and suppliers.</li>
+    <li>Ensured adherence to safety regulations.</li>
+  </ul>
+  <p><strong>Skills Gained:</strong> Site Reporting, Coordination, Construction Basics</p>
+</div>
+
+<script>
+// Scroll Animation for Cards
+const cards = document.querySelectorAll(".card");
+window.addEventListener("scroll", animateCards);
+window.addEventListener("load", animateCards);
+
+function animateCards() {
+  const trigger = window.innerHeight - 100;
+  cards.forEach((card, i) => {
+    const top = card.getBoundingClientRect().top;
+    if(top < trigger){
+      setTimeout(() => { card.classList.add("show"); }, i * 200);
+    }
+  });
+}
+
+// Dark Mode Toggle
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>

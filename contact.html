@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Abanoub Kamhy</title>
+
+<style>
+:root {
+  --main-bg: #f4f6f8;
+  --text-color: #1f2933;
+  --header-bg: #1f2933;
+  --card-bg: #ffffff;
+}
+
+.dark {
+  --main-bg: #0f172a;
+  --text-color: #e5e7eb;
+  --header-bg: #020617;
+  --card-bg: #1e293b;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--main-bg);
+  color: var(--text-color);
+  transition: 0.4s;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: var(--header-bg);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+}
+
+header a.home-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: #38bdf8;
+  color: #020617;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+header a.home-btn:hover {
+  background: #0d6efd;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* ===== HERO/BACKGROUND PARTICLES ===== */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.5;
+  pointer-events: none;
+  animation: float 15s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) translateX(0) rotate(0deg);}
+  100% { transform: translateY(-120vh) translateX(50px) rotate(360deg);}
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact {
+  padding: 50px 20px;
+  max-width: 600px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.contact h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* ===== FORM ===== */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input, form textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+form button {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background: #38bdf8;
+  color: #020617;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: #0d6efd;
+  color: white;
+}
+
+/* ===== MAP ===== */
+.map {
+  margin-top: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* ===== SOCIAL LINKS LEFT SIDE ===== */
+.social {
+  position: fixed;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.social a {
+  margin: 10px 0;
+  display: inline-block;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social a:hover {
+  transform: translateX(5px) rotate(-10deg) scale(1.1);
+  filter: brightness(1.2);
+}
+
+.social img {
+  width: 40px;
+  height: 40px;
+}
+
+/* ===== DARK MODE BUTTON ===== */
+.toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #38bdf8;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 9999;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .contact { padding: 40px 20px; }
+  form input, form textarea { font-size: 14px; }
+  .social img { width: 35px; height: 35px; }
+}
+
+@media (max-width: 768px) {
+  .contact { padding: 30px 15px; }
+  form input, form textarea { font-size: 13px; padding: 8px; }
+  form button { padding: 10px; font-size: 14px; }
+  .social { left: 5px; }
+  header a.home-btn { top: 10px; right: 10px; padding: 6px 10px; font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+  .contact { padding: 20px 10px; }
+  form input, form textarea { font-size: 12px; padding: 6px; }
+  form button { padding: 8px; font-size: 12px; }
+  .social img { width: 30px; height: 30px; }
+  header a.home-btn { top: 8px; right: 8px; padding: 5px 8px; font-size: 12px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>Contact Me</h2>
+  <a href="index.html" class="home-btn">Home</a>
+</header>
+
+<!-- ===== PARTICLES ===== -->
+<script>
+for(let i=0;i<30;i++){
+  const particle = document.createElement("div");
+  particle.classList.add("particle");
+  particle.style.width = particle.style.height = Math.random()*8 + 4 + "px";
+  particle.style.background = "rgba(56, 221, 248,"+Math.random()+")";
+  particle.style.left = Math.random()*100 + "%";
+  particle.style.bottom = Math.random()*50 + "px";
+  particle.style.animationDuration = (Math.random()*10 + 5) + "s";
+  document.body.appendChild(particle);
+}
+</script>
+
+<div class="contact">
+  <h2>Get in Touch</h2>
+  
+  <p>Email: abanoubkamhy1234@gmail.com</p>
+  <p>Phone: 01289060770</p>
+  <p>Location: Qena, Egypt</p>
+
+  <form id="contactForm">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div class="map">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.123456!2d31.123456!3d26.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14557f123456789%3A0xabcdef123456!2sQena%2C%20Egypt!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" 
+      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+<div class="social">
+    <a href="http://linkedin.com/in/abanoub-kamhy-443087316"><img src="linkedin.png" alt="LinkedIn"></a>
+    <a href="mailto:abanoubkamhy1234@gmail.com"><img src="gmail.png" alt="Email"></a>
+    <a href="https://www.facebook.com/share/15xZCSEKF5/?mibextid=wwXIfr"><img src="facebook.png" alt="Facebook"></a>
+    <a href="https://www.instagram.com/a_k_s_s_b?igsh=MWEzNzR3czFuZnZ6OQ%3D%3D&utm_source=qr"><img src="instagram.png" alt="Instagram"></a>
+</div>
+
+<button class="toggle" onclick="toggleMode()">🌙</button>
+
+<script>
+// Dark / Light Mode
+function toggleMode() {
+  document.body.classList.toggle("dark");
+}
+
+// Form submit
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("Thank you! Your message has been sent.");
+});
+</script>
+
+</body>
+</html>
